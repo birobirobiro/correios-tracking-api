@@ -1,10 +1,12 @@
 const express = require('express');
 const correios = require('correios-rastreamento');
+const cors = require('cors');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
+app.use(cors());
 
 app.get('/:trackingCode', async (req, res) => {
   const trackingCode = req.params.trackingCode;
